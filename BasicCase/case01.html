@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展卡片</title>
+    <style lang="css">
+        body {
+            height: 800px;
+        }
+
+        .content {
+            width: 60%;
+            height: 80%;
+            display: flex;
+            margin: 50px 10%;
+        }
+
+        .panle {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            margin-right: 10px;
+            border-radius: 50px;
+        }
+
+        .panle h3 {
+            position: absolute;
+            left: 5%;
+            top: 88%;
+            font-size: 14px;
+            opacity: 0;
+        }
+
+        .panle img {
+            height: 100%;
+        }
+
+        .active {
+            flex: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="panle active">
+            <img src="./images/images.jpg" alt="">
+            <h3>第一张图片</h3>
+        </div>
+        <div class="panle">
+            <img src="./images/images.jpg" alt="">
+            <h3>第二张图片</h3>
+        </div>
+        <div class="panle">
+            <img src="./images/images.jpg" alt="">
+            <h3>第三张图片</h3>
+        </div>
+        <div class="panle">
+            <img src="./images/images.jpg" alt="">
+            <h3>第四张图片</h3>
+        </div>
+        <div class="panle">
+            <img src="./images/images.jpg" alt="">
+            <h3>第五张图片</h3>
+        </div>
+    </div>
+
+    <!-- <script>
+        const panles = document.querySelectorAll(".panle");
+        panles.forEach(function (panle) {
+            //绑定事件
+            panle.addEventListener("click", function () {
+                removeActive();
+                panle.classList.add('active');
+            })
+        })
+
+        //移除active类
+        function removeActive() {
+            panles.forEach(panle => {
+                panle.classList.remove('active');
+            })
+        }
+    </script> -->
+
+    <script>
+        const panles = document.querySelectorAll(".panle");
+
+        for (var i = 0; i < panles.length; i++) {
+            panles[i].onclick = function () {
+                for (var j = 0; j < panles.length; j++) {
+                    panles[j].classList.remove('active')
+                }
+                this.classList.add('active')
+            }
+        }
+    </script>
+</body>
+
+</html>
